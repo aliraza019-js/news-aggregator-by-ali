@@ -128,9 +128,9 @@ npm run type-check
 Create a `.env` file in the root directory:
 
 ```env
-REACT_APP_NEWS_API_KEY=your_news_api_key
-REACT_APP_GUARDIAN_API_KEY=your_guardian_api_key
-REACT_APP_NYTIMES_API_KEY=your_nytimes_api_key
+REACT_APP_NEWS_API_KEY=8af7a63d89574077a420361aa7fed8e0
+REACT_APP_GUARDIAN_API_KEY=7af3990b-eb7c-443f-a468-508049f84464
+REACT_APP_NYTIMES_API_KEY=lpRJgOjU6LRaadr5RrlqIuLzPZ1XW03P
 ```
 
 ## API Keys

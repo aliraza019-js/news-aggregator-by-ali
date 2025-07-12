@@ -1,46 +1,169 @@
-# Getting Started with Create React App
+# News Aggregator Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React TypeScript application that aggregates news from multiple sources with personalized content filtering.
 
-## Available Scripts
+## Author
+**Ali Raza**
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Multi-Source News Aggregation**: Integrates with NewsAPI, The Guardian, and The New York Times
+- **Personalized Content Filtering**: User preferences for sources, categories, and authors
+- **Advanced Search & Filtering**: Keyword search, category filtering, date ranges, and sorting
+- **Responsive Design**: Modern UI built with Tailwind CSS
+- **Type Safety**: Full TypeScript implementation
+- **Clean Architecture**: Follows SOLID principles and best practices
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Best Practices Implemented
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. SOLID Principles
+- **Single Responsibility**: Each service handles one API (NewsAPI, Guardian, NYTimes)
+- **Open/Closed**: Services are extensible without modification
+- **Liskov Substitution**: Consistent interfaces across services
+- **Interface Segregation**: Focused, specific interfaces
+- **Dependency Inversion**: High-level modules don't depend on low-level modules
 
-### `npm test`
+### 2. DRY (Don't Repeat Yourself)
+- Centralized constants in `src/constants/index.ts`
+- Reusable utility functions in `src/utils/`
+- Shared components and hooks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. KISS (Keep It Simple, Stupid)
+- Clear, readable code structure
+- Minimal complexity in components
+- Straightforward data flow
 
-### `npm run build`
+### 4. Clean Code
+- No AI-generated comments
+- Meaningful variable and function names
+- Proper error handling
+- Type safety throughout
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ArticleCard.tsx
+│   ├── ArticleList.tsx
+│   ├── PreferencesPanel.tsx
+│   └── SearchAndFilter.tsx
+├── constants/          # Application constants
+│   └── index.ts
+├── context/           # React context providers
+│   └── UserPreferencesContext.tsx
+├── pages/             # Page components
+│   └── NewsPage.tsx
+├── services/          # API services
+│   ├── newsApiService.ts
+│   ├── guardianApiService.ts
+│   ├── nyTimesApiService.ts
+│   └── combinedNewsService.ts
+├── types/             # TypeScript type definitions
+│   └── index.ts
+└── utils/             # Utility functions
+    ├── categoryUtils.ts
+    ├── filterUtils.ts
+    ├── storageUtils.ts
+    └── textUtils.ts
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Key Components
 
-### `npm run eject`
+### Services Architecture
+- **Individual Services**: Each API has its own service class
+- **Combined Service**: Orchestrates all services using Facade pattern
+- **Error Handling**: Graceful fallbacks and error recovery
+- **Type Safety**: Full TypeScript implementation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### State Management
+- **React Context**: User preferences and global state
+- **Local Storage**: Persistent user preferences
+- **Optimized Re-renders**: Proper dependency management
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Filtering System
+- **Multi-level Filtering**: User preferences + search filters
+- **Category Detection**: AI-powered content categorization
+- **Performance Optimized**: Efficient filtering algorithms
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-## Learn More
+### Installation
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Development
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Build
+```bash
+npm run build
+```
+
+### Testing
+```bash
+npm test
+```
+
+### Linting
+```bash
+npm run lint
+npm run lint:fix
+```
+
+### Type Checking
+```bash
+npm run type-check
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+REACT_APP_NEWS_API_KEY=your_news_api_key
+REACT_APP_GUARDIAN_API_KEY=your_guardian_api_key
+REACT_APP_NYTIMES_API_KEY=your_nytimes_api_key
+```
+
+## API Keys
+
+The application uses three news APIs:
+- **NewsAPI**: https://newsapi.org/
+- **The Guardian**: https://open-platform.theguardian.com/
+- **The New York Times**: https://developer.nytimes.com/
+
+## Performance Optimizations
+
+- **Lazy Loading**: Components loaded on demand
+- **Memoization**: React.memo and useMemo for expensive operations
+- **Debounced Search**: Optimized search input handling
+- **Efficient Filtering**: Optimized filter algorithms
+- **Image Optimization**: Graceful image error handling
+
+## Code Quality
+
+- **ESLint**: Code linting and formatting
+- **TypeScript**: Strict type checking
+- **Prettier**: Code formatting
+- **Error Boundaries**: Graceful error handling
+- **Accessibility**: ARIA labels and semantic HTML
+
+## Contributing
+
+1. Follow the existing code structure
+2. Maintain type safety
+3. Write clean, readable code
+4. Test your changes
+5. Follow the established patterns
+
+## License
+
+This project is licensed under the MIT License.
